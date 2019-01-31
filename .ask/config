@@ -1,9 +1,33 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "",
+      "skill_id": "amzn1.ask.skill.032d9542-b7b2-468a-b35d-74749ffd9016",
       "was_cloned": false,
-      "merge": {}
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "263539d315c5478ed00ac2ab183cddde"
+        },
+        "interactionModel": {
+          "en-US": {
+            "eTag": "f4fbec49cf1adafc907362782922efa1"
+          }
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:032891030164:function:alexa-turtlecoin-official",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "alexa-turtlecoin-official",
+            "handler": "index.handler",
+            "revisionId": "4791cec9-26ad-4a98-babe-cc841ffe4768",
+            "runtime": "nodejs8.10"
+          }
+        ]
+      }
     }
   }
 }
