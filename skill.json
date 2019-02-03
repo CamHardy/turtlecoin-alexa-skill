@@ -1,32 +1,32 @@
 {
-  "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-US": {
-          "summary": "Find out more about TurtleCoin",
-          "examplePhrases": [
-            "Tell me about TurtleCoin",
-            "What is TurtleCoin's current market price",
-            "How can I get involved"
-          ],
-          "smallIconUri": "",
-          "largeIconUri": "",
-          "name": "alexa-turtlecoin-official",
-          "description": "Learn about TurtleCoin and how you can get involved!",
-          "keywords": ["TurtleCoin", "CryptoCurrency", "Cryptonote", "Cryptonight", "Cryptonight-lite", "Coin", "Crypto", "PaperShakey"]
-        }
-      },
-      "isAvailableWorldwide": true,
-      "category": "BUSINESS_AND_FINANCE"
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "sourceDir": "lambda/custom",
-          "uri": "alexa-turtlecoin-official"
-        }
-      }
-    },
-    "manifestVersion": "1.0"
-  }
+	"manifest": {
+		"publishingInformation": {
+			"locales": {
+				"en-US": {
+					"summary": "Find out more about TurtleCoin",
+					"examplePhrases": [
+						"Alexa, open TurtleCoin.",
+						"Alexa, what is the current market price of TurtleCoin?",
+						"Alexa, ask TurtleCoin how I can get involved."
+					],
+					"smallIconUri": "",
+					"largeIconUri": "",
+					"name": "alexa-turtlecoin-official",
+					"description": "Learn about TurtleCoin and how you can get involved!",
+					"keywords": ["TurtleCoin", "CryptoCurrency", "Cryptonote", "Cryptonight", "Cryptonight-lite", "Coin", "Crypto", "PaperShakey"]
+				}
+			},
+			"isAvailableWorldwide": true,
+			"category": "BUSINESS_AND_FINANCE"
+		},
+		"apis": {
+			"custom": {
+				"endpoint": {
+					"sourceDir": "lambda/custom",
+					"uri": "alexa-turtlecoin-official"
+				}
+			}
+		},
+		"manifestVersion": "1.0"
+	}
 }
