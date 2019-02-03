@@ -1,37 +1,110 @@
-/* eslint-disable  func-names */
-/* eslint-disable  no-console */
+'use strict';
 
 const Alexa = require('ask-sdk-core');
+const http = require('http');
+const https = require('https');
+
+function httpsGet(_host, _path) {
+  return new Promise(((resolve, reject) => {
+    var options = {
+      host: _host,
+      port: 443,
+      path: _path,
+      method: 'GET'
+    };
+
+    let req = https.request(options, (res) => {
+      res.setEncoding('utf8');
+      let returnData = '';
+
+      res.on('data', (chunk) => {
+        returnData += chunk;
+      });
+
+      res.on('end', () => {
+        resolve(returnData);
+      });
+
+      res.on('error', (error) => {
+        reject(error);
+      });
+    });
+    req.on('socket', (sock) => {
+      sock.setTimeout(7000);
+      sock.on('timeout', () => {
+        req.abort();
+      });
+    });
+
+    req.on('error', (error) => {
+      reject(error);
+    });
+    req.end();
+  }));
+}
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
-
     return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .speak('Welcome to TurtleCoin. You are TurtleCoin.')
+      .reprompt('What would you like to know about TurtleCoin?')
       .getResponse();
-  },
+  }
 };
 
-const HelloWorldIntentHandler = {
+const PriceHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+    const req = handlerInput.requestEnvelope.request;
+    return req.type === 'IntentRequest'
+      && req.intent.name === 'PriceIntent';
   },
-  handle(handlerInput) {
-    const speechText = 'Hello World!';
+  async handle(handlerInput) {
+    let trtl = await httpsGet('tradeogre.com', '/api/v1/ticker/BTC-TRTL')
+      .catch(() => {
+        return null;
+      });
+    let btc = await httpsGet('www.bitstamp.net', '/api/ticker')
+      .catch(() => {
+        return null;
+      });
+
+    let price = null;
+    if (trtl && btc) {
+      var trtlPrice = parseFloat(JSON.parse(trtl).price).toFixed(8);
+      var btcPrice = parseFloat(JSON.parse(btc).last);
+      price = trtlPrice * btcPrice;
+    }
+
+    const speechText = 'The current price is ' + (price ? 
+      `${price} USD.`:
+      'unavailable.');
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
-      .getResponse();
-  },
+      .getResponse();   
+  }
 };
+
+const ListNodesHandler = {};
+const DifficultyHandler = {};
+const VolumeHandler = {};
+const HeightHandler = {};
+const HashrateHandler = {};
+const GeneralInfoHandler = {};
+const CoinInfoHandler = {};
+const CoinAuthorHandler = {};
+const SkillAuthorHandler = {};
+const SupplyHandler = {};
+const CirculationHandler = {};
+const FactsHandler = {};
+const OriginStoryHandler = {};
+const BlockRewardHandler = {};
+const DevelopersHandler = {};
+const MembersHandler = {};
+const SocialLinksHandler = {};
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -44,7 +117,6 @@ const HelpIntentHandler = {
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
       .getResponse();
   },
 };
@@ -60,7 +132,6 @@ const CancelAndStopIntentHandler = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
       .getResponse();
   },
 };
@@ -95,7 +166,7 @@ const skillBuilder = Alexa.SkillBuilders.custom();
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-    HelloWorldIntentHandler,
+    PriceHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler

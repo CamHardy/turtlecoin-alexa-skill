@@ -1,27 +1,28 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "turtle coin",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "HelloWorldIntent",
-          "samples": [
-            "hello"
-          ]
-        }
-      ]
-    }
-  }
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "turtlecoin",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "PriceIntent",
+					"samples": [
+						"price",
+						"current price"
+					]
+				}
+			]
+		}
+	}
 }

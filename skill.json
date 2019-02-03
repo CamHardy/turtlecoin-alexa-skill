@@ -5,9 +5,9 @@
         "en-US": {
           "summary": "Find out more about TurtleCoin",
           "examplePhrases": [
-            "Tell me about TurtleCoin",
-            "What is TurtleCoin's current market price",
-            "How can I get involved"
+            "Alexa, open TurtleCoin.",
+            "Alexa, what is the current market price of TurtleCoin?",
+            "Alexa, ask TurtleCoin how I can get involved."
           ],
           "smallIconUri": "",
           "largeIconUri": "",

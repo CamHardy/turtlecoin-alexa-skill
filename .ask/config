@@ -6,11 +6,11 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "263539d315c5478ed00ac2ab183cddde"
+          "eTag": "f527e22bdcfe22b7f5c13b3c60448d94"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "f4fbec49cf1adafc907362782922efa1"
+            "eTag": "8ed7069a212024560c8993e9d5a1644b"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "alexa-turtlecoin-official",
             "handler": "index.handler",
-            "revisionId": "4791cec9-26ad-4a98-babe-cc841ffe4768",
+            "revisionId": "39a849f0-0a5e-42b2-a23a-5afadd9234c7",
             "runtime": "nodejs8.10"
           }
         ]

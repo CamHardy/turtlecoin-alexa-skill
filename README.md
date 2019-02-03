@@ -21,6 +21,7 @@
 	- [ ] Skill info
 - [ ]  Add slots
 	- [ ] Nodes with a fee below x
+- [ ] Test using "TurtleCoin" as the invocation name
 
 ### Lambda Function
 - [ ] APIs
