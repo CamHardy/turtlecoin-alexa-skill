@@ -4,22 +4,27 @@ The official TurtleCoin info skill for Alexa. Learn more about the coin and the 
 
 ## Prerequisites
 
-- Alexa Skills Kit CLI
+- Alexa Skills Kit CLI  
 	``` npm i -g ask-cli ```
 - That's it!
 
 ## Getting Started
 
-Initialize the Alexa Skills Kit with your Amazon developer account:
-``` ask init ```
+Initialize the Alexa Skills Kit with your Amazon developer account:  
+``` 
+ask init 
+```
 
-Install lambda node modules:
-``` cd lambda/custom ```
-``` npm i ```
+Install lambda node modules:  
+``` 
+cd lambda/custom 
+npm i 
+```
 
-From the root directory (i.e. the one with skill.json in it), run:
-``` ask deploy ``` to deploy everything (skill, model, lambda, ISPs)
-``` ask dialog ``` to interact with the skill via text simulation
+From the root directory (i.e. the one with skill.json in it), run:  
+
+``` ask deploy ``` to deploy everything (skill, model, lambda, ISPs)  
+``` ask dialog ``` to interact with the skill via text simulation  
 
 ## TODO:
 ### Skill Manifest
