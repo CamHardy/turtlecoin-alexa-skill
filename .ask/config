@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "262ae70fbff2edf697ecf52b442f490d"
+            "eTag": "f7b1fe137ab88a34d6623defb831f226"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "alexa-turtlecoin-official",
             "handler": "index.handler",
-            "revisionId": "7864ba75-a85f-4512-b15e-6a8bf3849fa6",
+            "revisionId": "8a0f612f-5714-4181-be07-06922109714e",
             "runtime": "nodejs8.10"
           }
         ]

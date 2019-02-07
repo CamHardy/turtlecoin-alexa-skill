@@ -21,12 +21,12 @@
 	- [ ] Skill info
 - [ ]  Add slots
 	- [ ] Nodes with a fee below x
-- [ ] Test using "TurtleCoin" as the invocation name
+- [x] Test using "TurtleCoin" as the invocation name
 
 ### Lambda Function
 - [ ] APIs
-	- [ ]  [Market info](https://tradeogre.com/api/v1/ticker/BTC-TRTL)
-	- [ ]  [Bitcoin Info](https://www.bitstamp.net/api/ticker)
-	- [ ]  [Coin info](http://trtl.node4whales.tk:11898/info)
-	- [ ]  [Node info](https://trtl.nodes.pub/api/getNodes)
+	- [x]  [Market info](https://tradeogre.com/api/v1/ticker/BTC-TRTL)
+	- [x]  [Bitcoin Info](https://www.bitstamp.net/api/ticker)
+	- [x]  [Coin info](http://public.turtlenode.io:11898/info)
+	- [x]  [Node info](https://trtl.nodes.pub/api/getNodes)
 - [ ] Scrape content from https://turtlecoin.lol

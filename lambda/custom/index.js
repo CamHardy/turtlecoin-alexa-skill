@@ -9,9 +9,9 @@ const AlexaLaunch = require('./handlers/alexa_launch');
 const AlexaSessionEnded = require('./handlers/alexa_sessionEnded');
 const Price = require('./handlers/price');
 const Difficulty = require('./handlers/difficulty');
+const NodeList = require('./handlers/nodeList');
+const Volume = require('./handlers/volume');
 
-const ListNodesHandler = {};
-const VolumeHandler = {};
 const HeightHandler = {};
 const HashrateHandler = {};
 const GeneralInfoHandler = {};
@@ -36,7 +36,9 @@ exports.handler = skillBuilder
 		AlexaLaunch.handler,
 		AlexaSessionEnded.handler,
 		Price.handler,
-		Difficulty.handler
+		Difficulty.handler,
+		NodeList.handler,
+		Volume.handler
 	)
 	.addErrorHandlers(AlexaError.handler)
 	.lambda();

@@ -1,5 +1,5 @@
-// price.js
-// tell the user the current price of TRTL in USD
+// volume.js
+// tell the user the current volume of TRTL in USD
 'use strict';
 const util = require('../util');
 
@@ -7,7 +7,7 @@ exports.handler = {
 	canHandle(handlerInput) {
 		const req = handlerInput.requestEnvelope.request;
 		return req.type === 'IntentRequest'
-			&& req.intent.name === 'PriceIntent';
+			&& req.intent.name === 'VolumeIntent';
 	},
 	async handle(handlerInput) {
 		let trtl = await util.httpsGet('tradeogre.com', '/api/v1/ticker/BTC-TRTL')
@@ -19,19 +19,19 @@ exports.handler = {
 				return null;
 			});
 
-		let price = null;
+		let volume = null;
 		if (trtl && btc) {
-			let trtlPrice = parseFloat(JSON.parse(trtl).price).toFixed(8);
-			let btcPrice = parseFloat(JSON.parse(btc).last);
-			price = trtlPrice * btcPrice;
+			let trtlVol = parseFloat(JSON.parse(trtl).volume).toFixed(8);
+			let btcVol = parseFloat(JSON.parse(btc).last);
+			volume = trtlVol * btcVol;
 		}
 
-		const speechText = 'The current price of <sub alias="turtle">TRTL</sub> is ' + (price ? 
-			`${price.toFixed(8)} USD.`:
+		const speechText = 'The current volume of <sub alias="turtle">TRTL</sub> is ' + (volume ? 
+			`${volume.toFixed(2)} USD.`:
 			'unavailable.');
 
 		return handlerInput.responseBuilder
 			.speak(speechText)
-			.getResponse();   
+			.getResponse();
 	}
 };

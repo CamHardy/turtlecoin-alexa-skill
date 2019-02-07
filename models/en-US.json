@@ -28,6 +28,20 @@
 						"difficulty",
 						"current difficulty"
 					]
+				},
+				{
+					"name": "NodeListIntent",
+					"samples": [
+						"node",
+						"a public node"
+					]
+				},
+				{
+					"name": "VolumeIntent",
+					"samples": [
+						"volume",
+						"current volume"
+					]
 				}
 			]
 		}

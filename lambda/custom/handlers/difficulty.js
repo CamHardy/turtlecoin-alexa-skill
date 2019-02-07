@@ -1,4 +1,5 @@
 // difficulty.js
+// tell the user the current coin difficulty
 'use strict';
 const util = require('../util');
 
